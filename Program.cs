@@ -9,8 +9,7 @@ namespace KXR_Decompresser
         static void Main(string[] args)
         {
             BinaryReader br = new BinaryReader(File.OpenRead(args[0]));
-            string magic = new(br.ReadChars(4));
-            if (magic != "kxrf")
+            if (new(br.ReadChars(4) != "kxrf")
                 throw new System.Exception("Not a KVR file.");
 
             br.BaseStream.Position = 50;
