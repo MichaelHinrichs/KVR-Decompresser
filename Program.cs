@@ -10,7 +10,7 @@ namespace KXR_Decompresser
         {
             BinaryReader br = new BinaryReader(File.OpenRead(args[0]));
             if (new(br.ReadChars(4) != "kxrf")
-                throw new System.Exception("Not a KVR file.");
+                throw new System.Exception("Not a KXR file.");
 
             br.BaseStream.Position = 50;
             using FileStream FS = File.Create(Path.GetDirectoryName(args[0]) + "//" + Path.GetFileNameWithoutExtension(args[0]));
