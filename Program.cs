@@ -32,8 +32,6 @@ namespace KXR_Decompresser
             for (int i = 0; i < starts.Count - 1; i++)
             {
                 br.BaseStream.Position = starts[i];
-                if (i == 186)
-                    i = 186;
 
                 using (var ds = new DeflateStream(new MemoryStream(br.ReadBytes((int)((starts[i + 1] - 2) - starts[i]))), CompressionMode.Decompress))
                     ds.CopyTo(File.Create(path + "//" + i));
